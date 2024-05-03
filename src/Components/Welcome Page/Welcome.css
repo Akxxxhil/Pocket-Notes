@@ -1,5 +1,4 @@
 .welcome-page {
-   /* border: 2px solid black; */
    margin-top: 10px;
    width: 400px;
    height: 100vh;
@@ -16,4 +15,21 @@
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+.title-input{
+    position: absolute;
+    top: 50%;
+    left: 35%; 
+    background-color: aqua;
+    box-shadow: 10px;
+    padding: 40px;
+}
+.title-input input{
+    font-size: 15px;  
+}
+.title-input span{
+    border: 1px solid green;  
+    margin-left: 5px;
+    padding: 10px;
+    border-radius: 50%;
 }
