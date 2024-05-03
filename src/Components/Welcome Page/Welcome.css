@@ -1,0 +1,19 @@
+.welcome-page {
+   /* border: 2px solid black; */
+   margin-top: 10px;
+   width: 400px;
+   height: 100vh;
+   position: relative;
+   left: 35%; 
+}
+
+.heading {
+    text-align: center;
+    
+}
+
+.add-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
