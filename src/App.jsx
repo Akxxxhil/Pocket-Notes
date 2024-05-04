@@ -4,7 +4,7 @@ import Welcome from './Components/Welcome Page/Welcome'
 function App() {
   return (
     <div>
-      <Welcome></Welcome>
+      hi
     </div>
   )
 }
