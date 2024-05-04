@@ -1,0 +1,67 @@
+.notes-group-dash{
+    color: white;
+    background-color: black;
+    width: 25%;
+    height: 100vh;
+}
+.create-btn{
+    position: absolute;
+    bottom: 0;
+    left: 21%;
+}
+.notes-dash{
+    background-color: #DAE5F5;
+    border: 2px solid #DAE5F5;
+    width: 75%;
+    height: 100vh;
+}
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    border-radius: 5px;
+  }
+  .color-chooser{
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .color1-option {
+    background-color: #B38BFA;
+  }
+  .color2-option {
+    background-color: #FF79F2;
+  }
+  .color3-option {
+    background-color: #43E6FC;
+  }
+  .color4-option {
+    background-color: #F19576;
+  }
+  .color5-option {
+    background-color: #0047FF;
+  }
+  .color6-option {
+    background-color: #6691FF;
+  }
+  .eachgroup{
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid red;
+  }
