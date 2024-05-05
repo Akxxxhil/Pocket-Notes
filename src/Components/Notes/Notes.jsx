@@ -14,11 +14,11 @@ function Notes() {
     
 
     return (
-        <div>
+        <div style={{backgroundColor:"#DAE5F5"}}>
            <div >
            <div>
                 {allnotes.map((singleNote)=>{
-                    return <div className='singleNote'>{singleNote}</div>
+                    return <div style={{backgroundColor:"white"}} className='singleNote'>{singleNote}</div>
                 })}
             </div>
             <div style={{ position: "absolute", bottom: "0", width: "75%" }}>
