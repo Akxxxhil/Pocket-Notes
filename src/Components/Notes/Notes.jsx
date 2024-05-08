@@ -2,29 +2,34 @@ import React, { useState } from 'react';
 import "./Notes.css"
 
 function Notes() {
-    const[allnotes,setAllNotes]=useState([])
+    const [allnotes, setAllNotes] = useState([])
     const [text, setText] = useState("")
+
     function addedNote(e) {
         setText(e.target.value)
     }
-    function newNote(){
-        setAllNotes((prevState)=>[...allnotes,text])
+
+    function newNote() {
+        setAllNotes(prevNotes => [...prevNotes, { text: text, timestamp: new Date().toLocaleString() }])
         setText("")
     }
-    
 
     return (
-        <div style={{backgroundColor:"#DAE5F5"}}>
-           <div >
-           <div>
-                {allnotes.map((singleNote)=>{
-                    return <div style={{backgroundColor:"white"}} className='singleNote'>{singleNote}</div>
+        <div style={{ backgroundColor: "#DAE5F5" }}>
+            <div>
+                {allnotes.map((singleNote, index) => {
+                    return (
+                        <div key={index} style={{ backgroundColor: "white" }} className='singleNote'>
+                            <p>{singleNote.text}</p>
+                            <p>{singleNote.timestamp}</p>
+                        </div>
+                    )
                 })}
             </div>
             <div style={{ position: "absolute", bottom: "0", width: "75%" }}>
                 <div style={{ border: "2px solid white", position: "relative" }}>
                     <textarea
-                    value={text}
+                        value={text}
                         onChange={addedNote}
                         name=""
                         id=""
@@ -33,8 +38,9 @@ function Notes() {
                         style={{ width: "100%" }}
                         placeholder='Enter your text here...........'
                     ></textarea>
-                    <button disabled={text.length === 0}
-                    onClick={newNote}
+                    <button
+                        disabled={text.length === 0}
+                        onClick={newNote}
                         style={{
                             position: "absolute",
                             right: "10px",
@@ -46,7 +52,6 @@ function Notes() {
                     </button>
                 </div>
             </div>
-           </div>
         </div>
     );
 }
