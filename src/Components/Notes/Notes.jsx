@@ -1,38 +1,43 @@
+// src/components/Notes/Notes.js
+
 import React, { useState } from 'react';
-import "./Notes.css"
+import "./Notes.css";
+import { useDispatch, useSelector } from 'react-redux';
+import { addChat } from '../../Redux/Slice/ChatSlice';
 
-function Notes() {
-    const [allnotes, setAllNotes] = useState([])
-    const [text, setText] = useState("")
+function Notes({ chatId }) {
+    const notes = useSelector((state) => state.pocketchat.notesByChatId[chatId] || []);
+    const dispatch = useDispatch();
+    const [text, setText] = useState("");
 
-    function addedNote(e) {
-        setText(e.target.value)
+    function handleTextChange(e) {
+        setText(e.target.value);
     }
 
-    function newNote() {
-        setAllNotes(prevNotes => [...prevNotes, { text: text, timestamp: new Date().toLocaleString() }])
-        setText("")
+    function handleNewNote() {
+        const note = {
+            text: text,
+            timestamp: new Date().toLocaleString()
+        };
+        dispatch(addChat({ chatId, note }));
+        setText("");
     }
 
     return (
         <div style={{ backgroundColor: "#DAE5F5" }}>
             <div>
-                {allnotes.map((singleNote, index) => {
-                    return (
-                        <div key={index} style={{ backgroundColor: "white" }} className='singleNote'>
-                            <p>{singleNote.text}</p>
-                            <p>{singleNote.timestamp}</p>
-                        </div>
-                    )
-                })}
+                {notes.map((singleNote, index) => (
+                    <div key={index} style={{ backgroundColor: "white" }} className='singleNote'>
+                        <p>{singleNote.text}</p>
+                        <p>{singleNote.timestamp}</p>
+                    </div>
+                ))}
             </div>
             <div style={{ position: "absolute", bottom: "0", width: "75%" }}>
                 <div style={{ border: "2px solid white", position: "relative" }}>
                     <textarea
                         value={text}
-                        onChange={addedNote}
-                        name=""
-                        id=""
+                        onChange={handleTextChange}
                         rows="5"
                         cols="120"
                         style={{ width: "100%" }}
@@ -40,12 +45,12 @@ function Notes() {
                     ></textarea>
                     <button
                         disabled={text.length === 0}
-                        onClick={newNote}
+                        onClick={handleNewNote}
                         style={{
                             position: "absolute",
                             right: "10px",
                             bottom: "10px",
-                            zIndex: "1", // To make sure the button stays on top of the textarea
+                            zIndex: "1",
                         }}
                     >
                         Your Button
